@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>غساق - النظام المحاسبي</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3182ce">
+
+    <style>
+        /* التنسيقات السابقة كما هي */
+        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        body { background: #f0f4f8; padding: 15px; margin: 0; }
+        .app { max-width: 1200px; margin: auto; background: white; padding: 20px; border-radius: 25px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+        /* ... (باقي التنسيقات ستبقى كما هي) ... */
+    </style>
+</head>
+<body>
+
+<div class="app" id="app">
+    <h1>🧪 غساق - النظام المتكامل</h1>
+    </div>
+
+<script>
+    // تسجيل الخدمة (Service Worker) ليعمل التطبيق بدون إنترنت
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('تم تسجيل Service Worker بنجاح'))
+                .catch(err => console.log('فشل تسجيل Service Worker:', err));
+        });
+    }
+
+    // منطق النظام الخاص بك (state, functions, etc...)
+    let state = { inventory: [{ id: 1, name: 'بنادول', qty: 20, cost: 3.5, price: 5.0 }], cart: [], cash: 100, journal: [], profit: 0 };
+    // ... باقي الكود الوظيفي ...
+</script>
+
+</body>
+</html>
